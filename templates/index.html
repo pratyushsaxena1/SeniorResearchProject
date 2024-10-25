@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Name</title>
+    <link rel="stylesheet" href="../static/css/indexStyle.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <h1>Stocks Project</h1>
+        <input type="text" id="companySearchText" placeholder="Search here for company name...">
+        <button id="searchCompanyButton" onclick="searchCompany()">Submit</button>
+        <table id="companyTable">
+            <tr>
+                <th>Company Name</th>
+                <th>Filing Date</th>
+                <th>Acquired or Disposed</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+            {% for row in data %}
+                {% if row[4] and row[0] and row[1] and row[2] and row[3] %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>        
+    </div>
+</body>
+</html>
